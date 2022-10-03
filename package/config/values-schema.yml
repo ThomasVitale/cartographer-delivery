@@ -1,0 +1,12 @@
+#@data/values-schema
+---
+
+#@schema/desc "The type of delivery chain to use when deploying workloads"
+#@schema/validation one_of=["basic", "acceptance", "smoke"]
+delivery_chain: basic
+
+#@schema/desc "The ServiceAccount used by the supply chain"
+service_account: default
+
+#@schema/desc "The Git implementation used by Flux"
+git_implementation: go-git

@@ -1,0 +1,32 @@
+#@ load("@ytt:data", "data")
+
+#@ if/end data.values.delivery_chain == "basic":
+---
+apiVersion: carto.run/v1alpha1
+kind: ClusterDelivery
+metadata:
+  name: delivery-basic
+spec:
+  selector:
+    apps.kadras.io/deliverable-type: web
+  
+  resources:
+    - name: source-provider
+      templateRef:
+        kind: ClusterSourceTemplate
+        name: delivery-source-template
+      params:
+      - name: serviceAccount
+        value: #@ data.values.service_account
+      - name: gitImplementation
+        value: #@ data.values.git_implementation
+    
+    - name: deployer
+      templateRef:
+        kind: ClusterDeploymentTemplate
+        name: app-deployment-template
+      params:
+        - name: serviceAccount
+          value: #@ data.values.service_account
+      deployment:
+        resource: source-provider

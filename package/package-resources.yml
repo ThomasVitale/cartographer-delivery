@@ -1,0 +1,74 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: Package
+metadata:
+  creationTimestamp: null
+  name: cartographer-delivery.packages.kadras.io.0.0.0
+spec:
+  refName: cartographer-delivery.packages.kadras.io
+  releasedAt: null
+  template:
+    spec:
+      deploy:
+      - kapp: {}
+      fetch:
+      - git: {}
+      template:
+      - ytt:
+          paths:
+          - config
+      - kbld: {}
+  valuesSchema:
+    openAPIv3:
+      additionalProperties: false
+      properties:
+        delivery_chain:
+          default: basic
+          description: The type of delivery chain to use when deploying workloads
+          type: string
+        git_implementation:
+          default: go-git
+          description: The Git implementation used by Flux
+          type: string
+        service_account:
+          default: default
+          description: The ServiceAccount used by the supply chain
+          type: string
+  version: 0.0.0
+
+---
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: PackageMetadata
+metadata:
+  creationTimestamp: null
+  name: cartographer-delivery.packages.kadras.io
+spec:
+  categories:
+  - ci/cd
+  - gitops
+  - deployment
+  displayName: cartographer-delivery
+  longDescription: A basic Cartographer delivery chain to deploy workloads either
+    using a GitOps or RegistryOps approach.
+  maintainers:
+  - name: Thomas Vitale
+  providerName: Arktonix
+  shortDescription: Deployment with GitOps/RegistryOps.
+
+---
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+  annotations:
+    kctrl.carvel.dev/local-fetch-0: .
+  creationTimestamp: null
+  name: cartographer-delivery
+spec:
+  packageRef:
+    refName: cartographer-delivery.packages.kadras.io
+    versionSelection:
+      constraints: 0.0.0
+  serviceAccountName: kadras-install-sa
+status:
+  conditions: null
+  friendlyDescription: ""
+  observedGeneration: 0
