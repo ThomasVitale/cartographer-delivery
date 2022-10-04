@@ -5,8 +5,8 @@ on:
 env:
   COSIGN_EXPERIMENTAL: 1
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}/delivery
-  VERSION: 0.1.0
+  IMAGE_NAME: ${{ github.repository }}
+  VERSION: 0.1.1
 
 jobs:
   build:

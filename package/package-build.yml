@@ -19,7 +19,7 @@ spec:
           - kbld: {}
       export:
       - imgpkgBundle:
-          image: ghcr.io/arktonix/cartographer-golden-paths/delivery
+          image: ghcr.io/arktonix/cartographer-delivery
           useKbldImagesLock: true
         includePaths:
         - config
