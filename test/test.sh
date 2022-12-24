@@ -23,6 +23,16 @@ kapp deploy -a kadras-repo -y \
 
 kapp deploy -a test-dependencies -f test/test-dependencies -y
 
+kubectl create namespace kadras-packages
+kapp deploy -a cartographer-blueprints-package -n kadras-packages -y \
+  -f https://github.com/arktonix/cartographer-blueprints/releases/latest/download/metadata.yml \
+  -f https://github.com/arktonix/cartographer-blueprints/releases/latest/download/package.yml
+
+kctrl package install -i cartographer-blueprints \
+  -p cartographer-blueprints.packages.kadras.io \
+  -v 0.3.0 \
+  -n kadras-packages
+
 echo -e "📦 Deploying Carvel package...\n"
 
 cd package

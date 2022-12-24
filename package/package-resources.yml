@@ -19,20 +19,30 @@ spec:
       - kbld: {}
   valuesSchema:
     openAPIv3:
+      type: object
       additionalProperties: false
       properties:
         delivery_chain:
-          default: basic
+          type: string
           description: The type of delivery chain to use when deploying workloads
-          type: string
-        git_implementation:
-          default: go-git
-          description: The Git implementation used by Flux
-          type: string
+          default: basic
         service_account:
-          default: default
-          description: The ServiceAccount used by the supply chain
           type: string
+          description: The ServiceAccount used by the supply chain
+          default: default
+        git_implementation:
+          type: string
+          description: The Git implementation used by Flux
+          default: go-git
+        gitops:
+          type: object
+          additionalProperties: false
+          description: Configuration for the GitOps steps in the delivery chain
+          properties:
+            access_secret:
+              type: string
+              description: The Secret containing credentials to access the specified Git repository
+              default: git-secret
   version: 0.0.0
 
 ---

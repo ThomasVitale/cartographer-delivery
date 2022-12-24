@@ -20,11 +20,13 @@ spec:
         value: #@ data.values.service_account
       - name: gitImplementation
         value: #@ data.values.git_implementation
+      - name: gitops_access_secret
+        default: #@ data.values.gitops.access_secret
     
-    - name: deployer
+    - name: app-deployer
       templateRef:
         kind: ClusterDeploymentTemplate
-        name: app-deployment-template
+        name: app-remote-deployment-template
       params:
         - name: serviceAccount
           value: #@ data.values.service_account

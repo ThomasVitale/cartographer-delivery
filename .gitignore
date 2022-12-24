@@ -1,6 +1,6 @@
 ### Carvel ###
 /**/carvel-artifacts/
-repo/
+/**/repo/
 
 # Binaries for programs and plugins
 *.exe
