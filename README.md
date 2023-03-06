@@ -44,7 +44,7 @@ Then, install the Cartographer Delivery package.
   ```shell
   kctrl package install -i cartographer-delivery \
     -p cartographer-delivery.packages.kadras.io \
-    -v 0.2.1 \
+    -v 0.2.2 \
     -n kadras-packages
   ```
 
@@ -92,7 +92,7 @@ Then, reference it from the `kctrl` command when installing or upgrading the pac
   ```shell
   kctrl package install -i cartographer-delivery \
     -p cartographer-delivery.packages.kadras.io \
-    -v 0.2.1 \
+    -v 0.2.2 \
     -n kadras-packages \
     --values-file values.yml
   ```
