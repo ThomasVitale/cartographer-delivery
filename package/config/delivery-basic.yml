@@ -16,12 +16,10 @@ spec:
         kind: ClusterSourceTemplate
         name: delivery-source-template
       params:
-      - name: serviceAccount
-        value: #@ data.values.service_account
-      - name: gitImplementation
-        value: #@ data.values.git_implementation
-      - name: gitops_access_secret
-        default: #@ data.values.gitops.access_secret
+        - name: gitAccessSecret
+          default: #@ data.values.git_access_secret
+        - name: serviceAccount
+          default: #@ data.values.service_account
     
     - name: app-deployer
       templateRef:
@@ -29,6 +27,6 @@ spec:
         name: app-remote-deployment-template
       params:
         - name: serviceAccount
-          value: #@ data.values.service_account
+          default: #@ data.values.service_account
       deployment:
         resource: source-provider
