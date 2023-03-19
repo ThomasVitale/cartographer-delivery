@@ -1,18 +1,13 @@
 #@data/values-schema
 ---
 
-#@schema/desc "The type of delivery chain to use when deploying workloads"
+#@schema/desc "The type of delivery chain to use when deploying workloads. Options: `basic`."
 #@schema/validation one_of=["basic"]
 delivery_chain: basic
 
-#@schema/desc "The ServiceAccount used by the supply chain"
+#@schema/desc "The default `ServiceAccount` used by the delivery chain."
+#@schema/validation min_len=1
 service_account: default
 
-#@schema/desc "The Git implementation used by Flux"
-git_implementation: go-git
-
-#@schema/desc "Configuration for the GitOps steps in the delivery chain"
-gitops:
-
-  #@schema/desc "The Secret containing credentials to access the specified Git repository"
-  access_secret: git-secret
+#@schema/desc "The Secret containing authentication credentials for the Git repository."
+git_access_secret: git-secret
