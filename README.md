@@ -81,6 +81,11 @@ The `basic` delivery chain provides a simple Cartographer path consisting of the
 * Monitor configuration source code repository with FluxCD;
 * Deploy the workload to Kubernetes with Carvel kapp.
 
+```mermaid
+flowchart LR;
+    A(Monitor Configuration)-->B(Deploy Workload);
+```
+
 ## 🎯&nbsp; Configuration
 
 The Cartographer Delivery package can be customized via a `values.yml` file.
