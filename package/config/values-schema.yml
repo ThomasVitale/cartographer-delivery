@@ -10,4 +10,4 @@ delivery_chain: basic
 service_account: default
 
 #@schema/desc "The Secret containing authentication credentials for the Git repository."
-git_access_secret: git-secret
+git_access_secret: supply-chain-git-credentials
