@@ -16,8 +16,8 @@ spec:
         kind: ClusterSourceTemplate
         name: delivery-source-template
       params:
-        - name: gitAccessSecret
-          default: #@ data.values.git_access_secret
+        - name: gitCredentialsSecret
+          default: #@ data.values.git_credentials_secret
         - name: serviceAccount
           default: #@ data.values.service_account
     
