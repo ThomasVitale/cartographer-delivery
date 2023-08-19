@@ -9,5 +9,6 @@ delivery_chain: basic
 #@schema/validation min_len=1
 service_account: default
 
-#@schema/desc "The Secret containing authentication credentials for the Git repository."
-git_access_secret: supply-chain-git-credentials
+#@schema/desc "The Secret containing authentication credentials for Git repositories."
+git_credentials_secret: ""
+
