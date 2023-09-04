@@ -6,6 +6,9 @@
 [![The Apache 2.0 license badge](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Follow us on Twitter](https://img.shields.io/static/v1?label=Twitter&message=Follow&color=1DA1F2)](https://twitter.com/kadrasIO)
 
+> **Warning**
+> This package has been archived. Application delivery is now supported by the [cartographer-supply-chains](cartographer-supply-chains) in combination with a GitOps controller, such as Carvel or Flux.
+
 A Carvel package providing [Cartographer](https://cartographer.sh) delivery chains to deploy workloads to a Kubernetes cluster based on GitOps or RegistryOps.
 
 ## 🚀&nbsp; Getting Started
